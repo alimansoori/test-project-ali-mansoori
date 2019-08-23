@@ -32,8 +32,10 @@ class FastRecursiveStrategy implements StrategyInterface
      */
     private function treeBuilder(array $siblings, array $grouped, string $primaryKey, string $childrenKey)
     {
+
         foreach ($siblings as $k => $sibling) {
             $id = $sibling[$primaryKey];
+            $sibling[$childrenKey] = [];
             if(isset($grouped[$id])) {
                 $sibling[$childrenKey] = $this->treeBuilder($grouped[$id], $grouped, $primaryKey, $childrenKey);
             }

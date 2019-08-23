@@ -19,6 +19,7 @@ class RecursiveStrategy implements StrategyInterface
     public function execute($flatArray = [], $startFromIdValue = null, $parentIdKey = 'parent_id', $primaryKey = 'id', $childrenKey = 'children'): array
     {
         $recursiveArray = [];
+        $value[$childrenKey] = [];
         foreach ($flatArray as $value) {
             if ($value[$parentIdKey] == $startFromIdValue) {
 

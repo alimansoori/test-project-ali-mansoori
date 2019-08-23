@@ -17,7 +17,9 @@ class CategoryController extends Controller
 
         $this->treeViewByStrategyPattern($categoriesToArray);
 
-        return $this->treeViewByStrategyPattern($categoriesToArray);
+        return [
+            'data' => $this->treeViewByStrategyPattern($categoriesToArray)
+        ];
     }
 
     private function treeViewByStrategyPattern($categoriesToArray)
@@ -33,7 +35,7 @@ class CategoryController extends Controller
             null,
             'parent_id',
             'id',
-            'child'
+            'children'
         );
 
         return $output;
