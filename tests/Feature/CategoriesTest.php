@@ -17,5 +17,9 @@ class CategoriesTest extends TestCase
         $response = $this->get('/api/categories');
 
         $response->assertStatus(200);
+
+        $response->dumpHeaders();
+
+        $response->dump();
     }
 }
